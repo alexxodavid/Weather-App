@@ -1,9 +1,12 @@
+//using async function because it's a more modern way to get instantaneous results
 async function fetchWeather() {
     const city = document.getElementById('city-input').value;
     if (city) {
         const apiKey = 'c2887e0473cbf866ba423f7454bff6b8'; // Needed to get the weather data API key from site 
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
         const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+
+// used template literals es6
 
         try {
             const weatherResponse = await fetch(weatherUrl);
@@ -19,7 +22,7 @@ async function fetchWeather() {
             console.error(error);
         }
     } else {
-        alert("Please enter a city name.");
+        alert("For the love of god enter a city's name!!");
     }
 }
 
